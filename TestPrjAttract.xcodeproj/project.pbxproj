@@ -12,6 +12,7 @@
 		17E013E6234CCF1D0034C68B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E013E4234CCF1D0034C68B /* Main.storyboard */; };
 		17E013E8234CCF1E0034C68B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E013E7234CCF1E0034C68B /* Assets.xcassets */; };
 		17E013EB234CCF1E0034C68B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E013E9234CCF1E0034C68B /* LaunchScreen.storyboard */; };
+		17E013F3234CD2200034C68B /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E013F2234CD2200034C68B /* JSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		17E013E7234CCF1E0034C68B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17E013EA234CCF1E0034C68B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17E013EC234CCF1E0034C68B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17E013F2234CD2200034C68B /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				17E013E0234CCF1D0034C68B /* AppDelegate.swift */,
 				17E013E2234CCF1D0034C68B /* ViewController.swift */,
+				17E013F2234CD2200034C68B /* JSON.swift */,
 				17E013E4234CCF1D0034C68B /* Main.storyboard */,
 				17E013E7234CCF1E0034C68B /* Assets.xcassets */,
 				17E013E9234CCF1E0034C68B /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E013F3234CD2200034C68B /* JSON.swift in Sources */,
 				17E013E3234CCF1D0034C68B /* ViewController.swift in Sources */,
 				17E013E1234CCF1D0034C68B /* AppDelegate.swift in Sources */,
 			);
