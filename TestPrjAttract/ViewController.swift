@@ -40,6 +40,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         }.resume()
     }
     
+    // MARK: - get image
+    
     func getImg(imgUrl: String) -> UIImage {
         var img: UIImage!
         if let url = URL(string: imgUrl) {
@@ -67,7 +69,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         let img = heroes[indexPath.row].image
         
         cell.nameLabel.text = "\(hero)"
-        cell.imgView.image = getImg(imgUrl: img)
+        cell.imgView.image = self.getImg(imgUrl: img)
 
         return cell
     }

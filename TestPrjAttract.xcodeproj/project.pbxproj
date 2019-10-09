@@ -62,8 +62,8 @@
 			children = (
 				17E013E0234CCF1D0034C68B /* AppDelegate.swift */,
 				17E013E2234CCF1D0034C68B /* ViewController.swift */,
-				17A5D88E234CE6B900F7DC5A /* Data.swift */,
 				17A5D88C234CE56A00F7DC5A /* CustomCell.swift */,
+				17A5D88E234CE6B900F7DC5A /* Data.swift */,
 				17E013E4234CCF1D0034C68B /* Main.storyboard */,
 				17E013F2234CD2200034C68B /* JSON.swift */,
 				17E013E7234CCF1E0034C68B /* Assets.xcassets */,
