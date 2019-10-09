@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
-    var tempString = ""
+    public var tempString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
