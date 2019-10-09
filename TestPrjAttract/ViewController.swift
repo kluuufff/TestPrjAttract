@@ -39,6 +39,19 @@ class ViewController: UIViewController, UITableViewDataSource {
             }
         }.resume()
     }
+    
+    func getImg(imgUrl: String) -> UIImage {
+        var img: UIImage!
+        if let url = URL(string: imgUrl) {
+            do {
+                let data = try Data(contentsOf: url)
+                    img = UIImage(data: data)
+            } catch {
+                print("error")
+            }
+        }
+        return img
+    }
 
     // MARK: - numberOfRowsInSection
     
@@ -51,8 +64,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
         let hero = heroes[indexPath.row].name
+        let img = heroes[indexPath.row].image
         
         cell.nameLabel.text = "\(hero)"
+        cell.imgView.image = getImg(imgUrl: img)
 
         return cell
     }

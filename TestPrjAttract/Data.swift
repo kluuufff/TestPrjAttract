@@ -11,6 +11,6 @@ import UIKit
 
 struct Heroes: Codable {
     let name: String
-//    let image: String
+    let image: String
 //    let time: String
 }
