@@ -14,8 +14,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
-    let transition = SlideInTransition()
-
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -70,23 +68,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func openMenuAction(_ sender: UIBarButtonItem) {
-        guard let menu = storyboard?.instantiateViewController(withIdentifier: "MenuTableViewController") else { return }
-        menu.modalPresentationStyle = .overCurrentContext
-        menu.transitioningDelegate = self
-        present(menu, animated: true)
-    }
-    
-}
-
-extension ViewController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.isPresenting = true
-        return transition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.isPresenting = false
-        return transition
+        print("123")
     }
     
 }
