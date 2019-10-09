@@ -13,4 +13,5 @@ struct Heroes: Codable {
     let name: String
     let image: String
     let time: String
+    let description: String
 }

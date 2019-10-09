@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+var descr = [String]()
+//var myIndex = 0
+
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var heroes = [Heroes]()
@@ -19,6 +22,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         getData()
         self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
     }
     
     // MARK: - parse JSON
@@ -75,4 +80,22 @@ class ViewController: UIViewController, UITableViewDataSource {
 
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "segue",
+            let destination = segue.destination as? DetailViewController,
+            let myIndex = tableView.indexPathForSelectedRow?.row {
+            destination.tempString = heroes[myIndex].description
+//            destination.blogName = swiftBlogs[blogIndex]
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        myIndex = indexPath.row
+//        myIndex = tableView.indexPathForSelectedRow!.row
+//        descr.append(heroes[indexPath.row].description)
+        performSegue(withIdentifier: "segue", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }
