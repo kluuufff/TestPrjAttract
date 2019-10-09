@@ -20,6 +20,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        #if DEBUG
+        get()
+        #endif
+        
         getData()
         self.tableView.dataSource = self
         self.tableView.delegate = self
