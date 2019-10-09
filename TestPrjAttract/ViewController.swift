@@ -67,9 +67,11 @@ class ViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
         let hero = heroes[indexPath.row].name
         let img = heroes[indexPath.row].image
+        let timeAndDate = heroes[indexPath.row].time
         
         cell.nameLabel.text = "\(hero)"
         cell.imgView.image = self.getImg(imgUrl: img)
+        cell.dateLabel.text = "\(timeAndDate)"
 
         return cell
     }

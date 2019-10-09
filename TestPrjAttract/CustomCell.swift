@@ -18,7 +18,6 @@ class CustomCell: UITableViewCell {
         super.awakeFromNib()
         
         imgView.contentMode = .scaleAspectFill
-//        imgView.contentMode = .center
         imgView.clipsToBounds = true
         
     }
