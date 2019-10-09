@@ -13,6 +13,8 @@ var heroes = [Heroes]()
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    let transition = SlideInTransition()
 
     // MARK: - viewDidLoad
     
@@ -65,6 +67,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "segue", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    @IBAction func openMenuAction(_ sender: UIBarButtonItem) {
+        guard let menu = storyboard?.instantiateViewController(withIdentifier: "MenuTableViewController") else { return }
+        menu.modalPresentationStyle = .overCurrentContext
+        menu.transitioningDelegate = self
+        present(menu, animated: true)
+    }
+    
+}
+
+extension ViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = true
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = false
+        return transition
     }
     
 }
