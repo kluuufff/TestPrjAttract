@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,83 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestPrjAttract" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cjq-fn-XXc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="120" id="sUe-YS-oet" customClass="CustomCell" customModule="TestPrjAttract" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sUe-YS-oet" id="6er-oo-o0A">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="78M-OX-wYW">
+                                                    <rect key="frame" x="15" y="11" width="98" height="98"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="98" id="57r-ax-KrP"/>
+                                                        <constraint firstAttribute="width" constant="98" id="bUx-NX-soq"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23e-TC-NQ5">
+                                                    <rect key="frame" x="131" y="11" width="229" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJE-jf-KIF">
+                                                    <rect key="frame" x="131" y="48.5" width="229" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gJE-jf-KIF" firstAttribute="trailing" secondItem="6er-oo-o0A" secondAttribute="trailingMargin" id="64Z-l7-rnt"/>
+                                                <constraint firstItem="78M-OX-wYW" firstAttribute="top" secondItem="6er-oo-o0A" secondAttribute="topMargin" id="E8d-0o-Fhz"/>
+                                                <constraint firstItem="gJE-jf-KIF" firstAttribute="leading" secondItem="78M-OX-wYW" secondAttribute="trailing" constant="18" id="LzA-zX-fT4"/>
+                                                <constraint firstItem="23e-TC-NQ5" firstAttribute="trailing" secondItem="6er-oo-o0A" secondAttribute="trailingMargin" id="aI7-Ws-ma9"/>
+                                                <constraint firstItem="78M-OX-wYW" firstAttribute="leading" secondItem="6er-oo-o0A" secondAttribute="leadingMargin" id="bPF-QZ-8Jq"/>
+                                                <constraint firstItem="23e-TC-NQ5" firstAttribute="top" secondItem="6er-oo-o0A" secondAttribute="top" constant="11" id="cjQ-p0-Nkp"/>
+                                                <constraint firstItem="23e-TC-NQ5" firstAttribute="leading" secondItem="78M-OX-wYW" secondAttribute="trailing" constant="18" id="egO-s0-4FL"/>
+                                                <constraint firstItem="gJE-jf-KIF" firstAttribute="top" secondItem="23e-TC-NQ5" secondAttribute="bottom" constant="12" id="ypU-TQ-LdV"/>
+                                                <constraint firstItem="78M-OX-wYW" firstAttribute="bottom" secondItem="6er-oo-o0A" secondAttribute="bottomMargin" id="z6l-wW-gUL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="gJE-jf-KIF" id="yz6-Q7-gvd"/>
+                                            <outlet property="imgView" destination="78M-OX-wYW" id="ub5-wO-jLX"/>
+                                            <outlet property="nameLabel" destination="23e-TC-NQ5" id="3se-D6-qbS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="LHE-su-2Dz"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="6Yh-GW-jw3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Cjq-fn-XXc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TD6-Uz-jvx"/>
+                            <constraint firstItem="Cjq-fn-XXc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aaI-1F-2W4"/>
+                            <constraint firstItem="Cjq-fn-XXc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gjc-Hl-kyw"/>
+                            <constraint firstItem="Cjq-fn-XXc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xiK-Vl-Dfp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Cjq-fn-XXc" id="1V6-mz-KwM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="132" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
