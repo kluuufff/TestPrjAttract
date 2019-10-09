@@ -81,6 +81,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    // MARK: - prepare for segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "segue",
             let destination = segue.destination as? DetailViewController,
@@ -88,6 +90,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             destination.tempString = heroes[myIndex].description
         }
     }
+    
+    // MARK: - didSelectRowAt
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "segue", sender: self)
