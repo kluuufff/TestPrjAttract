@@ -8,13 +8,11 @@
 
 import UIKit
 
-var descr = [String]()
-//var myIndex = 0
+var heroes = [Heroes]()
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var heroes = [Heroes]()
 
     // MARK: - viewDidLoad
     
@@ -25,44 +23,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         get()
         #endif
         
-        getData()
+        getData(tableView: tableView)
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-    }
-    
-    // MARK: - parse JSON
-    
-    func getData() {
-        guard let url = URL(string: "http://test.php-cd.attractgroup.com/test.json") else { return }
-        let session = URLSession.shared
-        session.dataTask(with: url) { (data, _, error) in
-            guard let data = data else { return }
-            do {
-                let decoder = JSONDecoder()
-                self.heroes = try decoder.decode([Heroes].self, from: data)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                }
-            } catch {
-                print(error)
-            }
-        }.resume()
-    }
-    
-    // MARK: - get image
-    
-    func getImg(imgUrl: String) -> UIImage {
-        var img: UIImage!
-        if let url = URL(string: imgUrl) {
-            do {
-                let data = try Data(contentsOf: url)
-                    img = UIImage(data: data)
-            } catch {
-                print("error")
-            }
-        }
-        return img
     }
 
     // MARK: - numberOfRowsInSection
@@ -80,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let timeAndDate = heroes[indexPath.row].time
         
         cell.nameLabel.text = "\(hero)"
-        cell.imgView.image = self.getImg(imgUrl: img)
+        cell.imgView.image = getImg(imgUrl: img)
         cell.dateLabel.text = "\(timeAndDate)"
 
         return cell

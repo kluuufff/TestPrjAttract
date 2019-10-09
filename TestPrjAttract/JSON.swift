@@ -6,10 +6,28 @@
 //  Copyright © 2019 Надежда Возна. All rights reserved.
 //
 
-#if DEBUG
+
 
 import UIKit
 
+func getData(tableView: UITableView) {
+    guard let url = URL(string: "http://test.php-cd.attractgroup.com/test.json") else { return }
+    let session = URLSession.shared
+    session.dataTask(with: url) { (data, _, error) in
+        guard let data = data else { return }
+        do {
+            let decoder = JSONDecoder()
+            heroes = try decoder.decode([Heroes].self, from: data)
+            DispatchQueue.main.async {
+                tableView.reloadData()
+            }
+        } catch {
+            print(error)
+        }
+        }.resume()
+}
+
+#if DEBUG
 func get() {
 
     guard let url = URL(string: "http://test.php-cd.attractgroup.com/test.json") else { return }
