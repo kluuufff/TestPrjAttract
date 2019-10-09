@@ -86,14 +86,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let destination = segue.destination as? DetailViewController,
             let myIndex = tableView.indexPathForSelectedRow?.row {
             destination.tempString = heroes[myIndex].description
-//            destination.blogName = swiftBlogs[blogIndex]
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        myIndex = indexPath.row
-//        myIndex = tableView.indexPathForSelectedRow!.row
-//        descr.append(heroes[indexPath.row].description)
         performSegue(withIdentifier: "segue", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
