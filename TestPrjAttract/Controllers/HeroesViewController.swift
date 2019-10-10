@@ -10,7 +10,7 @@ import UIKit
 
 var heroes = [Heroes]()
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HeroesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,27 +31,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
 
-    // MARK: - numberOfRowsInSection
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return heroes.count
-    }
-    
-    // MARK: - cellForRowAt
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
-        let hero = heroes[indexPath.row].name
-        let img = heroes[indexPath.row].image
-        let timeAndDate = heroes[indexPath.row].time
-        
-        cell.nameLabel.text = "\(hero)"
-        cell.imgView.image = getImg(imgUrl: img)
-        cell.dateLabel.text = "\(timeAndDate)"
-
-        return cell
-    }
-    
     // MARK: - prepare for segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,13 +41,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    // MARK: - didSelectRowAt
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "segue", sender: self)
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
     @IBAction func openMenuAction(_ sender: UIBarButtonItem) {
         guard let menu = storyboard?.instantiateViewController(withIdentifier: "MenuTableViewController") else { return }
         menu.modalPresentationStyle = .overCurrentContext
@@ -77,11 +49,47 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 }
 
-extension ViewController: UIViewControllerTransitioningDelegate {
+extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: - numberOfRowsInSection
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return heroes.count
+    }
+    
+    // MARK: - cellForRowAt
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
+        let hero = heroes[indexPath.row].name
+        let img = heroes[indexPath.row].image
+        let timeAndDate = heroes[indexPath.row].time
+        
+        cell.nameLabel.text = "\(hero)"
+        cell.imgView.image = getImg(imgUrl: img)
+        cell.dateLabel.text = "\(timeAndDate)"
+        
+        return cell
+    }
+    
+    // MARK: - didSelectRowAt
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "segue", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension HeroesViewController: UIViewControllerTransitioningDelegate {
+    
+    // MARK: - animation MENU when presented
+    
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = true
         return transition
     }
+    
+    // MARK: - animation MENU when dismissed
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = false

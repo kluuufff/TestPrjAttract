@@ -10,7 +10,10 @@
 
 import UIKit
 
+//parsing JSON
+
 func getData(tableView: UITableView) {
+    
     guard let url = URL(string: "http://test.php-cd.attractgroup.com/test.json") else { return }
     let session = URLSession.shared
     session.dataTask(with: url) { (data, _, error) in
@@ -24,10 +27,13 @@ func getData(tableView: UITableView) {
         } catch {
             print(error)
         }
-        }.resume()
+    }.resume()
+    
 }
 
+
 #if DEBUG
+
 func get() {
 
     guard let url = URL(string: "http://test.php-cd.attractgroup.com/test.json") else { return }

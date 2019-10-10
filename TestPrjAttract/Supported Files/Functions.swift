@@ -8,7 +8,10 @@
 
 import UIKit
 
+//get image from URL
+
 func getImg(imgUrl: String) -> UIImage {
+    
     var img: UIImage!
     if let url = URL(string: imgUrl) {
         do {
@@ -19,4 +22,5 @@ func getImg(imgUrl: String) -> UIImage {
         }
     }
     return img
+    
 }

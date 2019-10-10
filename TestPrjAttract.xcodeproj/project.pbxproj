@@ -12,7 +12,7 @@
 		17A5D88D234CE56A00F7DC5A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5D88C234CE56A00F7DC5A /* CustomCell.swift */; };
 		17A5D88F234CE6B900F7DC5A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5D88E234CE6B900F7DC5A /* Data.swift */; };
 		17E013E1234CCF1D0034C68B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E013E0234CCF1D0034C68B /* AppDelegate.swift */; };
-		17E013E3234CCF1D0034C68B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E013E2234CCF1D0034C68B /* ViewController.swift */; };
+		17E013E3234CCF1D0034C68B /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E013E2234CCF1D0034C68B /* HeroesViewController.swift */; };
 		17E013E6234CCF1D0034C68B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E013E4234CCF1D0034C68B /* Main.storyboard */; };
 		17E013E8234CCF1E0034C68B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E013E7234CCF1E0034C68B /* Assets.xcassets */; };
 		17E013EB234CCF1E0034C68B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E013E9234CCF1E0034C68B /* LaunchScreen.storyboard */; };
@@ -28,7 +28,7 @@
 		17A5D88E234CE6B900F7DC5A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		17E013DD234CCF1D0034C68B /* TestPrjAttract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPrjAttract.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E013E0234CCF1D0034C68B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		17E013E2234CCF1D0034C68B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		17E013E2234CCF1D0034C68B /* HeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
 		17E013E5234CCF1D0034C68B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		17E013E7234CCF1E0034C68B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17E013EA234CCF1E0034C68B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		170E1F63234F54DF00003103 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				17E013E2234CCF1D0034C68B /* ViewController.swift */,
+				17E013E2234CCF1D0034C68B /* HeroesViewController.swift */,
 				170E1F5F234F51F300003103 /* SlideInTransition.swift */,
 				170E1F61234F521E00003103 /* MenuTableViewController.swift */,
 				17F02B67234E05CD001BA3FE /* DetailViewController.swift */,
@@ -63,11 +63,8 @@
 		170E1F64234F550D00003103 /* Supported Files */ = {
 			isa = PBXGroup;
 			children = (
-				17E013E0234CCF1D0034C68B /* AppDelegate.swift */,
 				17F02B6B234E1631001BA3FE /* Functions.swift */,
 				17E013F2234CD2200034C68B /* JSON.swift */,
-				17E013E7234CCF1E0034C68B /* Assets.xcassets */,
-				17E013E9234CCF1E0034C68B /* LaunchScreen.storyboard */,
 			);
 			path = "Supported Files";
 			sourceTree = "<group>";
@@ -107,11 +104,14 @@
 		17E013DF234CCF1D0034C68B /* TestPrjAttract */ = {
 			isa = PBXGroup;
 			children = (
+				17E013E0234CCF1D0034C68B /* AppDelegate.swift */,
 				170E1F64234F550D00003103 /* Supported Files */,
 				170E1F63234F54DF00003103 /* Controllers */,
 				170E1F65234F551800003103 /* Model */,
 				170E1F66234F553200003103 /* View */,
+				17E013E9234CCF1E0034C68B /* LaunchScreen.storyboard */,
 				17E013E4234CCF1D0034C68B /* Main.storyboard */,
+				17E013E7234CCF1E0034C68B /* Assets.xcassets */,
 				17E013EC234CCF1E0034C68B /* Info.plist */,
 			);
 			path = TestPrjAttract;
@@ -190,7 +190,7 @@
 			files = (
 				17E013F3234CD2200034C68B /* JSON.swift in Sources */,
 				17A5D88F234CE6B900F7DC5A /* Data.swift in Sources */,
-				17E013E3234CCF1D0034C68B /* ViewController.swift in Sources */,
+				17E013E3234CCF1D0034C68B /* HeroesViewController.swift in Sources */,
 				17F02B6C234E1631001BA3FE /* Functions.swift in Sources */,
 				17F02B68234E05CD001BA3FE /* DetailViewController.swift in Sources */,
 				170E1F62234F521E00003103 /* MenuTableViewController.swift in Sources */,
