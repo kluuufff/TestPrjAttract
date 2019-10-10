@@ -106,14 +106,25 @@ extension HeroesViewController: UIViewControllerTransitioningDelegate {
     // MARK: - transition to New view controller
     
     func transitionNew(_ menuType: MenuType) {
+        
+        var storyboard: UIStoryboard {
+            switch UIDevice.current.userInterfaceIdiom {
+            case .phone: return UIStoryboard(name: "iPhone", bundle: nil)
+            case .pad: return UIStoryboard(name: "iPad", bundle: nil)
+            default:
+                fatalError()
+            }
+        }
+        
         let title = String(describing: menuType).capitalized
         switch title {
         case "List":
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "List") as? UINavigationController {
+            if let vc = storyboard.instantiateViewController(withIdentifier: "List") as? UINavigationController {
+                
                 present(vc, animated: true, completion: nil)
             }
         case "Settings":
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Settings") as? UINavigationController {
+            if let vc = storyboard.instantiateViewController(withIdentifier: "Settings") as? UINavigationController {
                 present(vc, animated: true, completion: nil)
             }
         default:

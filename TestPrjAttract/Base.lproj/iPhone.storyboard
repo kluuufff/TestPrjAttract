@@ -299,7 +299,6 @@
         <!--List-->
         <scene sceneID="Ymx-4v-pgY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="icE-Wr-v6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="VCI-Hc-3T0" customClass="ListViewController" customModule="TestPrjAttract" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="imU-nO-fTO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -315,13 +314,13 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="icE-Wr-v6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2212" y="796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5SL-lO-KIO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ohu-ax-aBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="List" automaticallyAdjustsScrollViewInsets="NO" id="bga-0X-DY7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="s68-aR-JgV">
@@ -333,13 +332,13 @@
                         <segue destination="VCI-Hc-3T0" kind="relationship" relationship="rootViewController" id="pKt-QM-cRp"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohu-ax-aBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1404" y="796"/>
         </scene>
         <!--Settings-->
         <scene sceneID="hcM-eT-KTa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ilh-SX-Lf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7Se-Yn-2vC" customClass="SettingsViewController" customModule="TestPrjAttract" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iGP-bs-CKR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -355,13 +354,13 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ilh-SX-Lf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2212" y="1500"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hk1-yH-o6D">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="red-Ti-eNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="Settings" automaticallyAdjustsScrollViewInsets="NO" id="gcg-2U-wY4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="tuS-KP-5h7">
@@ -373,6 +372,7 @@
                         <segue destination="7Se-Yn-2vC" kind="relationship" relationship="rootViewController" id="DGN-d7-60y"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="red-Ti-eNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1404" y="1498"/>
         </scene>
