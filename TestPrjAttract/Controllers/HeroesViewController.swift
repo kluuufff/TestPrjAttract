@@ -44,28 +44,14 @@ class HeroesViewController: UIViewController {
     @IBAction func openMenuAction(_ sender: UIBarButtonItem) {
         guard let menu = storyboard?.instantiateViewController(withIdentifier: "MenuTableViewController") as? MenuTableViewController else { return }
         menu.didTapMenuType = { menuType in
+            #if DEBUG
             print(menuType)
+            #endif
             self.transitionNew(menuType)
         }
         menu.modalPresentationStyle = .overCurrentContext
         menu.transitioningDelegate = self
         present(menu, animated: true)
-    }
-    
-    func transitionNew(_ menuType: MenuType) {
-        let title = String(describing: menuType).capitalized
-        switch title {
-        case "List":
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "List") as? UINavigationController {
-                present(vc, animated: true, completion: nil)
-            }
-        case "Settings":
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Settings") as? UINavigationController {
-                present(vc, animated: true, completion: nil)
-            }
-        default:
-            dismiss(animated: true, completion: nil)
-        }
     }
     
 }
@@ -115,6 +101,24 @@ extension HeroesViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = false
         return transition
+    }
+    
+    // MARK: - transition to New view controller
+    
+    func transitionNew(_ menuType: MenuType) {
+        let title = String(describing: menuType).capitalized
+        switch title {
+        case "List":
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "List") as? UINavigationController {
+                present(vc, animated: true, completion: nil)
+            }
+        case "Settings":
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Settings") as? UINavigationController {
+                present(vc, animated: true, completion: nil)
+            }
+        default:
+            dismiss(animated: true, completion: nil)
+        }
     }
     
 }

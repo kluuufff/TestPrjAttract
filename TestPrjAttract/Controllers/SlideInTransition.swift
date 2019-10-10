@@ -56,7 +56,7 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
         //Animation of the transition
         let duration = transitionDuration(using: transitionContext)
         let isCancelled = transitionContext.transitionWasCancelled
-        UIView.animate(withDuration: duration, animations:     {
+        UIView.animate(withDuration: duration, delay: 0.0, options: .curveEaseOut, animations:     {
             self.isPresenting ? transform() : identity()
         }) { (_) in
             transitionContext.completeTransition(!isCancelled)
