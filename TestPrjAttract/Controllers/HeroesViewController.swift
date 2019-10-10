@@ -9,12 +9,17 @@
 import UIKit
 
 var heroes = [Heroes]()
+var heroArray = [String]()
 
 class HeroesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let transition = SlideInTransition()
+    
+    var searchResult = [String]()
+    var searchFlag = false
     
     // MARK: - viewDidLoad
     
@@ -56,8 +61,9 @@ class HeroesViewController: UIViewController {
     
 }
 
+// MARK: - get image from URL
+
 extension UIImageView {
-    
     //get image from URL
     func getImg(imgUrl: String) {
         let session = URLSession.shared
@@ -75,21 +81,34 @@ extension UIImageView {
     }
 }
 
+// MARK: - TableView
+
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
     
-    // MARK: - numberOfRowsInSection
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return heroes.count
+        if searchFlag {
+            return searchResult.count
+        } else {
+            return heroes.count
+        }
     }
-    
-    // MARK: - cellForRowAt
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
-        let hero = heroes[indexPath.row].name
-        let img = heroes[indexPath.row].image
-        let timeAndDate = heroes[indexPath.row].time
+        var hero = String()
+        var img = String()
+        var timeAndDate = String()
+        
+        if searchFlag {
+            hero = searchResult[indexPath.row]
+            let index = heroArray.firstIndex(of: hero)
+            img = heroes[index!].image
+            timeAndDate = heroes[index!].time
+        } else {
+            hero = heroes[indexPath.row].name
+            img = heroes[indexPath.row].image
+            timeAndDate = heroes[indexPath.row].time
+        }
         
         cell.nameLabel.text = "\(hero)"
         cell.imgView!.getImg(imgUrl: img)
@@ -98,31 +117,40 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    // MARK: - didSelectRowAt
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "segue", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
+// MARK: - Search
+
+extension HeroesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchResult = heroArray.filter({$0.prefix(searchText.count) == searchText})
+        searchFlag = true
+        tableView.reloadData()
+    }
+}
+
+// MARK: - Open/Close Menu
+
 extension HeroesViewController: UIViewControllerTransitioningDelegate {
     
-    // MARK: - animation MENU when presented
-    
+    //animation MENU when presented
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = true
         return transition
     }
     
-    // MARK: - animation MENU when dismissed
+    //animation MENU when dismissed
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = false
         return transition
     }
     
-    // MARK: - transition to New view controller
+    //transition to New view controller
     
     func transitionNew(_ menuType: MenuType) {
         

@@ -15,11 +15,19 @@ func getData(tableView: UITableView) {
     
     guard let url = URL(string: "http://test.php-cd.attractgroup.com/test.json") else { return }
     let session = URLSession.shared
+    
     session.dataTask(with: url) { (data, _, error) in
         guard let data = data else { return }
         do {
             let decoder = JSONDecoder()
             heroes = try decoder.decode([Heroes].self, from: data)
+            
+            heroArray = [String]()
+            for i in 0..<heroes.count {
+                heroArray.append(heroes[i].name)
+            }
+            print(heroArray)
+            
             DispatchQueue.main.async {
                 tableView.reloadData()
             }
@@ -27,7 +35,6 @@ func getData(tableView: UITableView) {
             print(error)
         }
     }.resume()
-    
 }
 
 
