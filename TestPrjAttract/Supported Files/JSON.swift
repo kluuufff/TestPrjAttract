@@ -11,7 +11,6 @@
 import UIKit
 
 //parsing JSON
-
 func getData(tableView: UITableView) {
     
     guard let url = URL(string: "http://test.php-cd.attractgroup.com/test.json") else { return }

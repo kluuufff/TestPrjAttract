@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		170E1F60234F51F300003103 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E1F5F234F51F300003103 /* SlideInTransition.swift */; };
 		170E1F62234F521E00003103 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E1F61234F521E00003103 /* MenuTableViewController.swift */; };
+		170E1F68234F673E00003103 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E1F67234F673E00003103 /* ListViewController.swift */; };
+		170E1F6A234F674C00003103 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E1F69234F674C00003103 /* SettingsViewController.swift */; };
 		17A5D88D234CE56A00F7DC5A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5D88C234CE56A00F7DC5A /* CustomCell.swift */; };
 		17A5D88F234CE6B900F7DC5A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5D88E234CE6B900F7DC5A /* Data.swift */; };
 		17E013E1234CCF1D0034C68B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E013E0234CCF1D0034C68B /* AppDelegate.swift */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		170E1F5F234F51F300003103 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		170E1F61234F521E00003103 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		170E1F67234F673E00003103 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		170E1F69234F674C00003103 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		17A5D88C234CE56A00F7DC5A /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		17A5D88E234CE6B900F7DC5A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		17E013DD234CCF1D0034C68B /* TestPrjAttract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPrjAttract.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,9 +113,11 @@
 				170E1F63234F54DF00003103 /* Controllers */,
 				170E1F65234F551800003103 /* Model */,
 				170E1F66234F553200003103 /* View */,
-				17E013E9234CCF1E0034C68B /* LaunchScreen.storyboard */,
 				17E013E4234CCF1D0034C68B /* Main.storyboard */,
+				170E1F69234F674C00003103 /* SettingsViewController.swift */,
+				170E1F67234F673E00003103 /* ListViewController.swift */,
 				17E013E7234CCF1E0034C68B /* Assets.xcassets */,
+				17E013E9234CCF1E0034C68B /* LaunchScreen.storyboard */,
 				17E013EC234CCF1E0034C68B /* Info.plist */,
 			);
 			path = TestPrjAttract;
@@ -190,12 +196,14 @@
 			files = (
 				17E013F3234CD2200034C68B /* JSON.swift in Sources */,
 				17A5D88F234CE6B900F7DC5A /* Data.swift in Sources */,
+				170E1F6A234F674C00003103 /* SettingsViewController.swift in Sources */,
 				17E013E3234CCF1D0034C68B /* HeroesViewController.swift in Sources */,
 				17F02B6C234E1631001BA3FE /* Functions.swift in Sources */,
 				17F02B68234E05CD001BA3FE /* DetailViewController.swift in Sources */,
 				170E1F62234F521E00003103 /* MenuTableViewController.swift in Sources */,
 				170E1F60234F51F300003103 /* SlideInTransition.swift in Sources */,
 				17A5D88D234CE56A00F7DC5A /* CustomCell.swift in Sources */,
+				170E1F68234F673E00003103 /* ListViewController.swift in Sources */,
 				17E013E1234CCF1D0034C68B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

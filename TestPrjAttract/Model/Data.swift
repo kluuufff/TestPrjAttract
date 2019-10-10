@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-// JSON Data
-
+//JSON Data
 struct Heroes: Codable {
     let name: String
     let image: String

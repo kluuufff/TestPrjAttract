@@ -27,25 +27,33 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
         let finalHeight = toVC.view.bounds.height
         
         if isPresenting {
+            
+            //Add dimming view
             dimmingView.backgroundColor = .black
             dimmingView.alpha = 0.0
             containerView.addSubview(dimmingView)
             dimmingView.frame = containerView.bounds
             
+            //Add menu view controller to container
             containerView.addSubview(toVC.view)
+            
+            //Init frame off the screen
             toVC.view.frame = CGRect(x: -finalWidth, y: 0, width: finalWidth, height: finalHeight)
         }
         
+        //Move on screen
         let transform = {
             self.dimmingView.alpha = 0.6
             toVC.view.transform = CGAffineTransform(translationX: finalWidth, y: 0)
         }
         
+        //Move back off screen
         let identity = {
             self.dimmingView.alpha = 0.0
             fromVC.view.transform = .identity
         }
         
+        //Animation of the transition
         let duration = transitionDuration(using: transitionContext)
         let isCancelled = transitionContext.transitionWasCancelled
         UIView.animate(withDuration: duration, animations:     {

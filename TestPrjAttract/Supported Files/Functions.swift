@@ -9,7 +9,6 @@
 import UIKit
 
 //get image from URL
-
 func getImg(imgUrl: String) -> UIImage {
     
     var img: UIImage!
