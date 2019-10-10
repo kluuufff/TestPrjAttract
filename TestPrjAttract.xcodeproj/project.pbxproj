@@ -21,7 +21,6 @@
 		17E013EB234CCF1E0034C68B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E013E9234CCF1E0034C68B /* LaunchScreen.storyboard */; };
 		17E013F3234CD2200034C68B /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E013F2234CD2200034C68B /* JSON.swift */; };
 		17F02B68234E05CD001BA3FE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F02B67234E05CD001BA3FE /* DetailViewController.swift */; };
-		17F02B6C234E1631001BA3FE /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F02B6B234E1631001BA3FE /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +40,6 @@
 		17E013EC234CCF1E0034C68B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E013F2234CD2200034C68B /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		17F02B67234E05CD001BA3FE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		17F02B6B234E1631001BA3FE /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,15 +64,6 @@
 				170E1F67234F673E00003103 /* ListViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		170E1F64234F550D00003103 /* Supported Files */ = {
-			isa = PBXGroup;
-			children = (
-				17F02B6B234E1631001BA3FE /* Functions.swift */,
-				17E013F2234CD2200034C68B /* JSON.swift */,
-			);
-			path = "Supported Files";
 			sourceTree = "<group>";
 		};
 		170E1F65234F551800003103 /* Model */ = {
@@ -113,10 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				17E013E0234CCF1D0034C68B /* AppDelegate.swift */,
-				170E1F64234F550D00003103 /* Supported Files */,
 				170E1F63234F54DF00003103 /* Controllers */,
 				170E1F65234F551800003103 /* Model */,
 				170E1F66234F553200003103 /* View */,
+				17E013F2234CD2200034C68B /* JSON.swift */,
 				17E013E4234CCF1D0034C68B /* iPhone.storyboard */,
 				170E1F6B234F709400003103 /* iPad.storyboard */,
 				17E013E7234CCF1E0034C68B /* Assets.xcassets */,
@@ -158,6 +147,7 @@
 				TargetAttributes = {
 					17E013DC234CCF1D0034C68B = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -202,7 +192,6 @@
 				17A5D88F234CE6B900F7DC5A /* Data.swift in Sources */,
 				170E1F6A234F674C00003103 /* SettingsViewController.swift in Sources */,
 				17E013E3234CCF1D0034C68B /* HeroesViewController.swift in Sources */,
-				17F02B6C234E1631001BA3FE /* Functions.swift in Sources */,
 				17F02B68234E05CD001BA3FE /* DetailViewController.swift in Sources */,
 				170E1F62234F521E00003103 /* MenuTableViewController.swift in Sources */,
 				170E1F60234F51F300003103 /* SlideInTransition.swift in Sources */,

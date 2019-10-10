@@ -56,6 +56,25 @@ class HeroesViewController: UIViewController {
     
 }
 
+extension UIImageView {
+    
+    //get image from URL
+    func getImg(imgUrl: String) {
+        let session = URLSession.shared
+        if let url = URL(string: imgUrl) {
+            session.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error ?? "error")
+                    return
+                }
+                DispatchQueue.main.async() {
+                    self.image = UIImage(data: data!)
+                }
+            }.resume()
+        }
+    }
+}
+
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - numberOfRowsInSection
@@ -73,7 +92,7 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         let timeAndDate = heroes[indexPath.row].time
         
         cell.nameLabel.text = "\(hero)"
-        cell.imgView.image = getImg(imgUrl: img)
+        cell.imgView!.getImg(imgUrl: img)
         cell.dateLabel.text = "\(timeAndDate)"
         
         return cell
@@ -120,7 +139,6 @@ extension HeroesViewController: UIViewControllerTransitioningDelegate {
         switch title {
         case "List":
             if let vc = storyboard.instantiateViewController(withIdentifier: "List") as? UINavigationController {
-                
                 present(vc, animated: true, completion: nil)
             }
         case "Settings":
