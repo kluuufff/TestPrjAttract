@@ -19,15 +19,18 @@ func getData(tableView: UITableView) {
     session.dataTask(with: url) { (data, _, error) in
         guard let data = data else { return }
         do {
+            //decode
             let decoder = JSONDecoder()
             heroes = try decoder.decode([Heroes].self, from: data)
             
+            //hero array for search
             heroArray = [String]()
             for i in 0..<heroes.count {
                 heroArray.append(heroes[i].name)
             }
+            #if DEBUG
             print(heroArray)
-            
+            #endif
             DispatchQueue.main.async {
                 tableView.reloadData()
             }
