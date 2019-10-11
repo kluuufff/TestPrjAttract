@@ -99,10 +99,6 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         if let unixTime = Double(timestamp) {
             let date = Date(timeIntervalSince1970: unixTime / 1000)
             let dateFormatter = DateFormatter()
-//            let timezone = TimeZone.current.abbreviation() ?? "CET"  // get current TimeZone abbreviation or set to CET
-//            dateFormatter.timeZone = TimeZone(abbreviation: timezone) //Set timezone that you want
-//            dateFormatter.locale = NSLocale.current
-//            dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
             dateFormatter.locale = Locale(identifier: "ru_UA")
             dateFormatter.dateFormat = "dd-MMMM-yyyy HH:mm" //Specify your format that you want
             strDate = dateFormatter.string(from: date)
@@ -116,7 +112,6 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         var hero = String()
         var img = String()
         var timeAndDate = String()
-//        var timeAndDateResult = String()
         
         if searchFlag {
             hero = searchResult[indexPath.row]
@@ -128,12 +123,6 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
             img = heroes[indexPath.row].image
             timeAndDate = heroes[indexPath.row].time
         }
-        
-//        if let time = Double(timeAndDate) {
-//            let timeResult = time / 1000.0
-//            timeAndDateResult = String(timeResult)
-//            print("Double \(timeResult)")
-//        } else { print("error") }
         
         cell.nameLabel.text = "\(hero)"
         cell.imgView!.getImg(imgUrl: img)
