@@ -12,6 +12,7 @@
 		170E1F68234F673E00003103 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E1F67234F673E00003103 /* ListViewController.swift */; };
 		170E1F6A234F674C00003103 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E1F69234F674C00003103 /* SettingsViewController.swift */; };
 		170E1F6C234F709400003103 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170E1F6B234F709400003103 /* iPad.storyboard */; };
+		17619F4A2350FF8300840076 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17619F492350FF8300840076 /* SplitViewController.swift */; };
 		17A5D88D234CE56A00F7DC5A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5D88C234CE56A00F7DC5A /* CustomCell.swift */; };
 		17A5D88F234CE6B900F7DC5A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5D88E234CE6B900F7DC5A /* Data.swift */; };
 		17E013E1234CCF1D0034C68B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E013E0234CCF1D0034C68B /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		170E1F67234F673E00003103 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		170E1F69234F674C00003103 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		170E1F6B234F709400003103 /* iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		17619F492350FF8300840076 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		17A5D88C234CE56A00F7DC5A /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		17A5D88E234CE6B900F7DC5A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		17E013DD234CCF1D0034C68B /* TestPrjAttract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPrjAttract.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				17E013E2234CCF1D0034C68B /* HeroesViewController.swift */,
+				17619F492350FF8300840076 /* SplitViewController.swift */,
 				170E1F5F234F51F300003103 /* SlideInTransition.swift */,
 				170E1F61234F521E00003103 /* MenuTableViewController.swift */,
 				17F02B67234E05CD001BA3FE /* DetailViewController.swift */,
@@ -190,6 +193,7 @@
 			files = (
 				17E013F3234CD2200034C68B /* JSON.swift in Sources */,
 				17A5D88F234CE6B900F7DC5A /* Data.swift in Sources */,
+				17619F4A2350FF8300840076 /* SplitViewController.swift in Sources */,
 				170E1F6A234F674C00003103 /* SettingsViewController.swift in Sources */,
 				17E013E3234CCF1D0034C68B /* HeroesViewController.swift in Sources */,
 				17F02B68234E05CD001BA3FE /* DetailViewController.swift in Sources */,

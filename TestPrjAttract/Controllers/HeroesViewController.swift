@@ -35,6 +35,8 @@ class HeroesViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        self.searchBar.delegate = self
+        
     }
 
     // MARK: - prepare for segue

@@ -21,7 +21,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n5q-iO-bCY">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="swS-Ko-GaZ">
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Search" id="swS-Ko-GaZ">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -338,7 +338,7 @@
         <!--Split View Controller-->
         <scene sceneID="fhH-Hk-6By">
             <objects>
-                <splitViewController id="Z8l-5F-DxG" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="splitVC" id="Z8l-5F-DxG" customClass="SplitViewController" customModule="TestPrjAttract" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="FmI-cx-vSj" kind="relationship" relationship="masterViewController" id="1OJ-uO-20y"/>
                         <segue destination="unS-oh-AfP" kind="relationship" relationship="detailViewController" id="BTF-KD-F9T"/>
