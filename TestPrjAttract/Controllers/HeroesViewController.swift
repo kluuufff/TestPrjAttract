@@ -16,6 +16,7 @@ class HeroesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var myIndex: Int = 0
     let transition = SlideInTransition()
     
     var searchResult = [String]()
@@ -39,10 +40,17 @@ class HeroesViewController: UIViewController {
     // MARK: - prepare for segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "segue",
-            let destination = segue.destination as? DetailViewController,
-            let myIndex = tableView.indexPathForSelectedRow?.row {
-            destination.tempString = heroes[myIndex].description
+        if searchFlag {
+            if  segue.identifier == "segue",
+                let destination = segue.destination as? DetailViewController {
+                destination.tempString = heroes[myIndex].description
+            }
+        } else {
+            if  segue.identifier == "segue",
+                let destination = segue.destination as? DetailViewController,
+                let myIndex = tableView.indexPathForSelectedRow?.row {
+                    destination.tempString = heroes[myIndex].description
+            }
         }
     }
     
@@ -93,14 +101,16 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    // MARK: - convert "time"
+    
     func createDateTime(timestamp: String) -> String {
-        var strDate = "undefined"
+        var strDate = ""
         
         if let unixTime = Double(timestamp) {
             let date = Date(timeIntervalSince1970: unixTime / 1000)
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: "ru_UA")
-            dateFormatter.dateFormat = "dd-MMMM-yyyy HH:mm" //Specify your format that you want
+            dateFormatter.dateFormat = "dd-MMMM-yyyy HH:mm"
             strDate = dateFormatter.string(from: date)
         }
         
@@ -118,6 +128,7 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
             let index = heroArray.firstIndex(of: hero)
             img = heroes[index!].image
             timeAndDate = heroes[index!].time
+            myIndex = index!
         } else {
             hero = heroes[indexPath.row].name
             img = heroes[indexPath.row].image
