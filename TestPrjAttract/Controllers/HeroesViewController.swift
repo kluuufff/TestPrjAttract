@@ -9,18 +9,22 @@
 import UIKit
 
 var heroes = [Heroes]()
-var heroArray = [String]()
+public var nameOfHeroArray = [String](),
+           timeOfHeroArray = [String](),
+           descriptionOfHeroArray = [String](),
+           imageOfHeroArray = [String]()
 
 class HeroesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var myIndex: Int = 0
-    let transition = SlideInTransition()
+    public var myIndex: Int = 0
+    public let transition = SlideInTransition()
     
-    var searchResult = [String]()
-    var searchFlag = false
+    private var resultSearchBar = UISearchController()
+    public var searchResult = [String]()
+    public var searchFlag = false
     
     // MARK: - viewDidLoad
     
@@ -34,8 +38,6 @@ class HeroesViewController: UIViewController {
         getData(tableView: tableView)
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
-        self.searchBar.delegate = self
         
     }
 
@@ -91,6 +93,21 @@ extension UIImageView {
     }
 }
 
+//func downloadImage(url: String) -> UIImage {
+//    var image = UIImage()
+//    if let url = URL(string: url) {
+//        do {
+//            let data = try Data(contentsOf: url)
+//            DispatchQueue.main.async {
+//                image = UIImage(data: data)!
+//            }
+//        } catch {
+//            print("error")
+//        }
+//    }
+//    return image
+//}
+
 // MARK: - TableView
 
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -103,22 +120,6 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // MARK: - convert "time"
-    
-    func createDateTime(timestamp: String) -> String {
-        var strDate = ""
-        
-        if let unixTime = Double(timestamp) {
-            let date = Date(timeIntervalSince1970: unixTime / 1000)
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "ru_UA")
-            dateFormatter.dateFormat = "dd-MMMM-yyyy HH:mm"
-            strDate = dateFormatter.string(from: date)
-        }
-        
-        return strDate
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
         var hero = String()
@@ -127,7 +128,7 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         
         if searchFlag {
             hero = searchResult[indexPath.row]
-            let index = heroArray.firstIndex(of: hero)
+            let index = nameOfHeroArray.firstIndex(of: hero)
             img = heroes[index!].image
             timeAndDate = heroes[index!].time
             myIndex = index!
@@ -138,7 +139,8 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.nameLabel.text = "\(hero)"
-        cell.imgView!.getImg(imgUrl: img)
+//        cell.imgView!.getImg(imgUrl: img)
+        cell.imgView.getImg(imgUrl: img)
         cell.dateLabel.text = "\(createDateTime(timestamp: timeAndDate))"
         
         return cell
@@ -154,7 +156,7 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HeroesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchResult = heroArray.filter({$0.prefix(searchText.count) == searchText})
+        searchResult = nameOfHeroArray.filter({$0.prefix(searchText.count) == searchText})
         searchFlag = true
         tableView.reloadData()
     }

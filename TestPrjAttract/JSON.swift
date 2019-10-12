@@ -24,12 +24,15 @@ func getData(tableView: UITableView) {
             heroes = try decoder.decode([Heroes].self, from: data)
             
             //hero array for search
-            heroArray = [String]()
+            nameOfHeroArray = [String]()
             for i in 0..<heroes.count {
-                heroArray.append(heroes[i].name)
+                nameOfHeroArray.append(heroes[i].name)
+                timeOfHeroArray.append(heroes[i].time)
+                descriptionOfHeroArray.append(heroes[i].description)
+                imageOfHeroArray.append(heroes[i].image)
             }
             #if DEBUG
-            print(heroArray)
+            print(nameOfHeroArray)
             #endif
             DispatchQueue.main.async {
                 tableView.reloadData()
@@ -38,6 +41,22 @@ func getData(tableView: UITableView) {
             print(error)
         }
     }.resume()
+}
+
+// MARK: - convert "time"
+
+func createDateTime(timestamp: String) -> String {
+    var strDate = ""
+    
+    if let unixTime = Double(timestamp) {
+        let date = Date(timeIntervalSince1970: unixTime / 1000)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_UA")
+        dateFormatter.dateFormat = "dd-MMMM-yyyy HH:mm"
+        strDate = dateFormatter.string(from: date)
+    }
+    
+    return strDate
 }
 
 
