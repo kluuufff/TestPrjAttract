@@ -53,7 +53,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.size.height)
     }
     
