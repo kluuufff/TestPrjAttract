@@ -13,6 +13,7 @@ public var nameOfHeroArray = [String](),
            timeOfHeroArray = [String](),
            descriptionOfHeroArray = [String](),
            imageOfHeroArray = [String]()
+public var imageArray = [UIImageView]()
 
 class HeroesViewController: UIViewController {
 
@@ -93,21 +94,6 @@ extension UIImageView {
     }
 }
 
-//func downloadImage(url: String) -> UIImage {
-//    var image = UIImage()
-//    if let url = URL(string: url) {
-//        do {
-//            let data = try Data(contentsOf: url)
-//            DispatchQueue.main.async {
-//                image = UIImage(data: data)!
-//            }
-//        } catch {
-//            print("error")
-//        }
-//    }
-//    return image
-//}
-
 // MARK: - TableView
 
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -139,7 +125,6 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.nameLabel.text = "\(hero)"
-//        cell.imgView!.getImg(imgUrl: img)
         cell.imgView.getImg(imgUrl: img)
         cell.dateLabel.text = "\(createDateTime(timestamp: timeAndDate))"
         
