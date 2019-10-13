@@ -15,18 +15,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     
     public var tempString = ""
-    let cellScaling: CGFloat = 0.6
-    
-    public var nameArray = nameOfHeroArray
-    public var timeArray = timeOfHeroArray
-    public var descriptionArray = descriptionOfHeroArray
-    public var imageArray = imageOfHeroArray
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         descriptionLabel.text = tempString
-        pageControl.numberOfPages = nameArray.count
+        pageControl.numberOfPages = nameOfHeroArray.count
         
     }
 }
@@ -34,18 +28,18 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return nameArray.count
+        return nameOfHeroArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroesCollectionViewCell", for: indexPath) as! HeroesCollectionViewCell
         
-        cell.heroName.text = nameArray[indexPath.row]
-        cell.heroDescription.text = descriptionArray[indexPath.row]
-        cell.heroDate.text = "\(createDateTime(timestamp: timeArray[indexPath.row]))"
+        cell.heroName.text = nameOfHeroArray[indexPath.row]
+        cell.heroDescription.text = descriptionOfHeroArray[indexPath.row]
+        cell.heroDate.text = "\(createDateTime(timestamp: timeOfHeroArray[indexPath.row]))"
         cell.heroImage.contentMode = .scaleAspectFill
         cell.heroImage.clipsToBounds = true
-        cell.heroImage.getImg(imgUrl: imageArray[indexPath.row])
+        cell.heroImage.getImg(imgUrl: imageOfHeroArray[indexPath.row])
 
         return cell
     }

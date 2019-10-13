@@ -13,7 +13,10 @@ public var nameOfHeroArray = [String](),
            timeOfHeroArray = [String](),
            descriptionOfHeroArray = [String](),
            imageOfHeroArray = [String]()
+
 public var imageArray = [UIImageView]()
+
+var imageCache = NSCache<AnyObject, AnyObject>()
 
 class HeroesViewController: UIViewController {
 
@@ -77,20 +80,31 @@ class HeroesViewController: UIViewController {
 // MARK: - get image from URL
 
 extension UIImageView {
-    //get image from URL
+    //get image from URL; cache
     func getImg(imgUrl: String) {
-        let session = URLSession.shared
-        if let url = URL(string: imgUrl) {
-            session.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print(error ?? "error")
-                    return
-                }
-                DispatchQueue.main.async() {
-                    self.image = UIImage(data: data!)
-                }
-            }.resume()
+        
+        if let cacheImage = imageCache.object(forKey: imgUrl as AnyObject) as? UIImage {
+            self.image = cacheImage
+            return
         }
+        
+        guard let url = URL(string: imgUrl) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("Couldn't download image: ", error)
+                return
+            }
+            
+            guard let data = data else { return }
+            let image = UIImage(data: data)
+            imageCache.setObject(image!, forKey: imgUrl as AnyObject)
+            
+            DispatchQueue.main.async {
+                self.image = image
+            }
+            }.resume()
+        
     }
 }
 
