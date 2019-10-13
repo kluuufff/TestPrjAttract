@@ -77,7 +77,7 @@ class HeroesViewController: UIViewController {
     
 }
 
-// MARK: - get image from URL
+// MARK: - get image from URL and try cache
 
 extension UIImageView {
     //get image from URL; cache
