@@ -16,3 +16,19 @@ struct Heroes: Codable {
     let time: String
     let description: String
 }
+
+//Array of Heroes
+public class ListData: NSObject {
+    let nameOfHero: String
+    let timeOfHero: String
+    let descriptionOfHero: String
+    let imageOfHero: String
+    
+    init(nameOfHero: String, timeOfHero: String, descriptionOfHero: String, imageOfHero: String) {
+        self.nameOfHero = nameOfHero
+        self.timeOfHero = timeOfHero
+        self.descriptionOfHero = descriptionOfHero
+        self.imageOfHero = imageOfHero
+    }
+}
+

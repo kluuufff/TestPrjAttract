@@ -9,23 +9,7 @@
 import UIKit
 
 var heroes = [Heroes]()
-
-public class ListData: NSObject {
-    let nameOfHero: String
-    let timeOfHero: String
-    let descriptionOfHero: String
-    let imageOfHero: String
-    
-    init(nameOfHero: String, timeOfHero: String, descriptionOfHero: String, imageOfHero: String) {
-        self.nameOfHero = nameOfHero
-        self.timeOfHero = timeOfHero
-        self.descriptionOfHero = descriptionOfHero
-        self.imageOfHero = imageOfHero
-    }
-}
-
 public var imageArray = [UIImageView]()
-
 var imageCache = NSCache<AnyObject, AnyObject>()
 
 class HeroesViewController: UIViewController {
