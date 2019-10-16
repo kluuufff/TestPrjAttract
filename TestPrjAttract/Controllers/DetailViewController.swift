@@ -54,7 +54,12 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+//        let vc = SplitViewController()
+//        switch UIDevice.current.userInterfaceIdiom {
+//            case .phone: return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.size.height)
+//            case .pad: return CGSize(width: vc.detailViewFrame.width, height: vc.detailViewFrame.height)
+//            default: fatalError()
+//        }
         return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.size.height)
     }
     

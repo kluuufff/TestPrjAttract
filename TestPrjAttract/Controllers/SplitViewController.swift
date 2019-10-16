@@ -9,22 +9,23 @@
 import UIKit
 
 class SplitViewController: UISplitViewController {
+    
+    public var detailViewFrame = CGRect()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         preferredDisplayMode = .allVisible
+        detailViewFrame = self.view.frame
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+//        detailViewFrame = self.view.frame
+        #if DEBUG
+        print("detailViewFrame.width \(detailViewFrame.width)")
+        print("detailViewFrame.height \(detailViewFrame.height)")
+        #endif
     }
-    */
-
 }
