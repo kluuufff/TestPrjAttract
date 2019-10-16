@@ -6,9 +6,9 @@
 //  Copyright © 2019 Надежда Возна. All rights reserved.
 //
 
-
-
 import UIKit
+
+public var arrayOfHero: [ListData] = [ListData]()
 
 //parsing JSON
 func getData(tableView: UITableView) {
@@ -16,6 +16,7 @@ func getData(tableView: UITableView) {
     guard let url = URL(string: "http://test.php-cd.attractgroup.com/test.json") else { return }
     let session = URLSession.shared
     
+
     session.dataTask(with: url) { (data, _, error) in
         guard let data = data else { return }
         do {
@@ -24,16 +25,16 @@ func getData(tableView: UITableView) {
             heroes = try decoder.decode([Heroes].self, from: data)
             
             //hero array for search
-            nameOfHeroArray = [String]()
+            var getHero: ListData
             for i in 0..<heroes.count {
-                nameOfHeroArray.append(heroes[i].name)
-                timeOfHeroArray.append(heroes[i].time)
-                descriptionOfHeroArray.append(heroes[i].description)
-                imageOfHeroArray.append(heroes[i].image)
+                getHero = ListData(nameOfHero: heroes[i].name, timeOfHero: heroes[i].time, descriptionOfHero: heroes[i].description, imageOfHero: heroes[i].image)
+                arrayOfHero.append(getHero)
+                
+                #if DEBUG
+                print("arrayOfHero: \(arrayOfHero[i].nameOfHero)")
+                #endif
+                
             }
-            #if DEBUG
-            print(nameOfHeroArray)
-            #endif
             DispatchQueue.main.async {
                 tableView.reloadData()
             }

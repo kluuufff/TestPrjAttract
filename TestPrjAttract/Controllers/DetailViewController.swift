@@ -20,7 +20,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         descriptionLabel.text = tempString
-        pageControl.numberOfPages = nameOfHeroArray.count
+        pageControl.numberOfPages = arrayOfHero.map({$0.nameOfHero}).count
         
     }
 }
@@ -28,18 +28,18 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return nameOfHeroArray.count
+        return arrayOfHero.map({$0.nameOfHero}).count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroesCollectionViewCell", for: indexPath) as! HeroesCollectionViewCell
         
-        cell.heroName.text = nameOfHeroArray[indexPath.row]
-        cell.heroDescription.text = descriptionOfHeroArray[indexPath.row]
-        cell.heroDate.text = "\(createDateTime(timestamp: timeOfHeroArray[indexPath.row]))"
+        cell.heroName.text = arrayOfHero[indexPath.row].nameOfHero
+        cell.heroDescription.text = arrayOfHero[indexPath.row].descriptionOfHero
+        cell.heroDate.text = "\(createDateTime(timestamp: arrayOfHero[indexPath.row].timeOfHero))"
         cell.heroImage.contentMode = .scaleAspectFill
         cell.heroImage.clipsToBounds = true
-        cell.heroImage.getImg(imgUrl: imageOfHeroArray[indexPath.row])
+        cell.heroImage.getImg(imgUrl: arrayOfHero[indexPath.row].imageOfHero)
 
         return cell
     }

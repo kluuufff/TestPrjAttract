@@ -9,10 +9,20 @@
 import UIKit
 
 var heroes = [Heroes]()
-public var nameOfHeroArray = [String](),
-           timeOfHeroArray = [String](),
-           descriptionOfHeroArray = [String](),
-           imageOfHeroArray = [String]()
+
+public class ListData: NSObject {
+    let nameOfHero: String
+    let timeOfHero: String
+    let descriptionOfHero: String
+    let imageOfHero: String
+    
+    init(nameOfHero: String, timeOfHero: String, descriptionOfHero: String, imageOfHero: String) {
+        self.nameOfHero = nameOfHero
+        self.timeOfHero = timeOfHero
+        self.descriptionOfHero = descriptionOfHero
+        self.imageOfHero = imageOfHero
+    }
+}
 
 public var imageArray = [UIImageView]()
 
@@ -126,9 +136,13 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         var img = String()
         var timeAndDate = String()
         
+        #if DEBUG
+        print("str \(arrayOfHero.map({$0.nameOfHero}))")
+        #endif
+        
         if searchFlag {
             hero = searchResult[indexPath.row]
-            let index = nameOfHeroArray.firstIndex(of: hero)
+            let index = arrayOfHero.map({$0.nameOfHero}).firstIndex(of: hero)
             img = heroes[index!].image
             timeAndDate = heroes[index!].time
             myIndex = index!
@@ -155,7 +169,8 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HeroesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchResult = nameOfHeroArray.filter({$0.prefix(searchText.count) == searchText})
+//        searchResult = nameOfHeroArray.filter({$0.prefix(searchText.count) == searchText})
+        searchResult = arrayOfHero.map({$0.nameOfHero}).filter({$0.prefix(searchText.count) == searchText})
         searchFlag = true
         tableView.reloadData()
     }
