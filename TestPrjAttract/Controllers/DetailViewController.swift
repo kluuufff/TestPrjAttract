@@ -15,13 +15,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     
     public var tempString = ""
+    public var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         descriptionLabel.text = tempString
         pageControl.numberOfPages = arrayOfHero.map({$0.nameOfHero}).count
-        
+        collectionView.selectItem(at: [0, index], animated: false, scrollPosition: .centeredHorizontally)
+        pageControl.currentPage = index
     }
 }
 
@@ -33,7 +35,6 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroesCollectionViewCell", for: indexPath) as! HeroesCollectionViewCell
-        
         cell.heroName.text = arrayOfHero[indexPath.row].nameOfHero
         cell.heroDescription.text = arrayOfHero[indexPath.row].descriptionOfHero
         cell.heroDate.text = "\(createDateTime(timestamp: arrayOfHero[indexPath.row].timeOfHero))"
@@ -53,7 +54,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.size.height)
     }
     

@@ -17,12 +17,11 @@ class HeroesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    public var myIndex: Int = 0
     public let transition = SlideInTransition()
-    
-    private var resultSearchBar = UISearchController()
+    public var myIndex: Int = 0
     public var searchResult = [String]()
     public var searchFlag = false
+    private var resultSearchBar = UISearchController()
     
     // MARK: - viewDidLoad
     
@@ -36,7 +35,6 @@ class HeroesViewController: UIViewController {
         getData(tableView: tableView)
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
     }
 
     // MARK: - prepare for segue
@@ -46,12 +44,14 @@ class HeroesViewController: UIViewController {
             if  segue.identifier == "segue",
                 let destination = segue.destination as? DetailViewController {
                 destination.tempString = heroes[myIndex].description
+                destination.index = myIndex
             }
         } else {
             if  segue.identifier == "segue",
                 let destination = segue.destination as? DetailViewController,
                 let myIndex = tableView.indexPathForSelectedRow?.row {
                     destination.tempString = heroes[myIndex].description
+                    destination.index = myIndex
             }
         }
     }
@@ -68,7 +68,6 @@ class HeroesViewController: UIViewController {
         menu.transitioningDelegate = self
         present(menu, animated: true)
     }
-    
 }
 
 // MARK: - get image from URL and try cache
@@ -204,5 +203,4 @@ extension HeroesViewController: UIViewControllerTransitioningDelegate {
             dismiss(animated: true, completion: nil)
         }
     }
-    
 }
