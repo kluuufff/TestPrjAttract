@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
         descriptionLabel.text = tempString
         pageControl.numberOfPages = arrayOfHero.map({$0.nameOfHero}).count
         collectionView.selectItem(at: [0, index], animated: false, scrollPosition: .centeredHorizontally)
+//        collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
         pageControl.currentPage = index
     }
 }
@@ -52,16 +53,20 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         pageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
+    
+//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return lists.count+1
+//    }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        let vc = SplitViewController()
 //        switch UIDevice.current.userInterfaceIdiom {
 //            case .phone: return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.size.height)
 //            case .pad: return CGSize(width: vc.detailViewFrame.width, height: vc.detailViewFrame.height)
 //            default: fatalError()
 //        }
-        return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.size.height)
-    }
+//        return CGSize(width: UIScreen.main.bounds.width, height: 326)
+//    }
     
 }
 
