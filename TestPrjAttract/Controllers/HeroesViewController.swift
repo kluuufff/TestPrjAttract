@@ -13,9 +13,9 @@ public var imageArray = [UIImageView]()
 var imageCache = NSCache<AnyObject, AnyObject>()
 
 class HeroesViewController: UIViewController {
+    
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     public let transition = SlideInTransition()
     public var myIndex: Int = 0
@@ -27,6 +27,12 @@ class HeroesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        self.navigationItem.searchController = search
+        search.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
         
         #if DEBUG
         get()
@@ -150,11 +156,12 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Search
 
-extension HeroesViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        searchResult = nameOfHeroArray.filter({$0.prefix(searchText.count) == searchText})
-        searchResult = arrayOfHero.map({$0.nameOfHero}).filter({$0.prefix(searchText.count) == searchText})
-        searchFlag = true
+extension HeroesViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            searchResult = arrayOfHero.map({$0.nameOfHero}).filter({$0.prefix(searchText.count) == searchText})
+            searchFlag = true
+        }
         tableView.reloadData()
     }
 }

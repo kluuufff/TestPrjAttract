@@ -54,20 +54,6 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         pageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
     
-//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return lists.count+1
-//    }
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let vc = SplitViewController()
-//        switch UIDevice.current.userInterfaceIdiom {
-//            case .phone: return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.size.height)
-//            case .pad: return CGSize(width: vc.detailViewFrame.width, height: vc.detailViewFrame.height)
-//            default: fatalError()
-//        }
-//        return CGSize(width: UIScreen.main.bounds.width, height: 326)
-//    }
-    
 }
 
 
