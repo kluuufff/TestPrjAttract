@@ -14,7 +14,6 @@ var imageCache = NSCache<AnyObject, AnyObject>()
 
 class HeroesViewController: UIViewController {
     
-
     @IBOutlet weak var tableView: UITableView!
     
     public let transition = SlideInTransition()
@@ -70,7 +69,7 @@ class HeroesViewController: UIViewController {
             #endif
             self.transitionNew(menuType)
         }
-        menu.modalPresentationStyle = .overCurrentContext
+        menu.modalPresentationStyle = .overFullScreen
         menu.transitioningDelegate = self
         present(menu, animated: true)
     }
